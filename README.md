@@ -1,6 +1,5 @@
 # Most Popular JavaScript Interview Questions and Answers
 
-
 ---
 
 ## 📌 1. What is Hoisting in JavaScript?
@@ -13,10 +12,12 @@ Hoisting is JavaScript's default behavior of moving variable and function declar
 
 
 ## 🚀 Why Does Hoisting Happen in JavaScript?
+
 Hoisting occurs because JavaScript code is executed in **two phases** inside the **Execution Context**. 
 
-## 🔹 1) Creation Phase
+## **1️⃣ Creation Phase
 During the creation phase, JavaScript prepares memory before executing your code.
+
 * Memory is allocated for **variables**, **functions**, and **arguments**.
 * **Function declarations** are hoisted with their full definitions.
 * Variables declared with **`var`** are initialized with `undefined`.
@@ -24,10 +25,13 @@ During the creation phase, JavaScript prepares memory before executing your code
 
 This explains why accessing `let` or `const` before initialization causes a **ReferenceError**.
 
-## 🔹 2) Execution Phase
+## **2️⃣ Execution Phase
+
 After memory allocation, JavaScript runs the code **line by line**.
+
 * Variable assignments happen in this phase.
 * Functions execute when called.
+
 
 ```js
 console.log(a); // undefined
