@@ -115,7 +115,7 @@ But real-world applications require handling multiple asynchronous tasks such as
 * File reading
 * User authentication
 
-Before promises, developers used **callbacks**, but nesting callbacks inside callbacks created callback Hell means complexity for understand and maintain the code:
+Before promises, developers used **callbacks**, but nesting callbacks inside callbacks created callback Hell means complexity for understand and maintain code:
 
 ### ❌ Callback Hell
 * Complex to read
@@ -126,7 +126,7 @@ To solve this problem, **ES6 introduced Promises**, providing a cleaner and more
 
 ### ✔ A Promise have 3 States
 
-1. **Pending** – The operation has started but is not yet complete.
+1. **Pending** – The operation is the initial state.
 2. **Fulfilled** – The operation completed successfully.
 3. **Rejected** – The operation failed.
 
@@ -138,10 +138,18 @@ Promises are consumed using:
 ### 📎 Example
 
 ```js
-getData()
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
+let fetchData = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Data received");
+  }, 2000);
+});
+
+fetchData
+  .then(response => console.log(response))  // if resolved
+  .catch(error => console.error(error));    // if rejected    
+
 ```
+
 ---
 
 ## 📌 5. Difference Between Promise and Async/Await?
