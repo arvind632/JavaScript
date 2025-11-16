@@ -31,47 +31,28 @@ var a = 10;
 
 ---
 
-## 📌 3. What is the Event Loop?
+## 🚀 3. What Is the Event Loop in JavaScript?
 
-**Answer:**
-# 🔄 JavaScript Event Loop — Professional & Easy-to-Understand Guide
-
-A clean, beginner-friendly, and interview-ready explanation of the **JavaScript Event Loop**, formatted perfectly for GitHub README files.
-
----
-
-## 🚀 What Is the Event Loop in JavaScript?
-
-The **Event Loop** is a core part of the **JavaScript runtime environment**, responsible for managing **asynchronous operations** without blocking the single main thread.
-
+The **Event Loop** is a core part of the **JavaScript runtime environment**, responsible for managing **asynchronous operations** without blocking the main thread.
 Because JavaScript is **single-threaded**, means it can run only **one task at a time** inside a single **call stack**.
 
-## 🧠 Why Do We Need the Event Loop?
 However, in the real life applications, developers need to perform multiple operations such as:
-
 * Fetching API data
 * Login & authentication
 * Add to cart / Checkout process
 * Sending emails
-* File reading
 
 These tasks must run smoothly **without blocking the main thread or freezing the user interface** — To solve this problem,  **Event Loop** was introduced.
 
 ---
 
-
-
-Even though JavaScript executes in a single thread, modern applications require running multiple tasks **concurrently**.
+Even though JavaScript executes in a single thread, and in modern applications require running multiple tasks **concurrently**.
 
 ---
 
 ## ⚙️ How the Event Loop Works
 
-Here’s the simplified flow:
-
-### **1️⃣ JavaScript runs synchronous code in the Call Stack**
-
-This is where normal code executes line by line.
+### **1️⃣ JavaScript runs line by line (synchronous) code in the Call Stack**
 
 ### **2️⃣ Asynchronous operations are handled by Web APIs / Node APIs**
 
@@ -91,14 +72,9 @@ There are two main queues:
 
 ### **4️⃣ Event Loop monitors the Call Stack**
 
-If the Call Stack is **empty**, the Event Loop:
-
-* Pushes microtasks first (Promises)
-* Then pushes callbacks
-
-### **5️⃣ The cycle repeats forever**
-
-This constant checking and moving of tasks without blocking the javascript main thread.
+If the Call Stack is **empty**, the Event Loop push callback into Call Stack for execution.
+ 
+ So Event loop is continuously checks the callback queue and if there are any Callback then move it from callback queue to call stack and execute.
 ---
 ## 📌 4. What are Promises?
 
