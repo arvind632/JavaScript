@@ -156,14 +156,77 @@ fetchData
 
 **Answer:**
 
-* Async/Await is syntactical sugar over Promises.
-* Makes asynchronous code look synchronous.
+JavaScript handles asynchronous operations using **Promises** and **Async/Await**.  
+Both help avoid blocking the main thread, but they work in different ways and provide different levels of readability and control.
+
+
+## 📌 Key Differences (Table Format)
+
+| Feature | Promise | Async/Await |
+|--------|---------|--------------|
+| **Definition** | A Promise represents the eventual completion or failure of an async task. | A syntactic sugar built on top of Promises to write easier, cleaner async code. |
+| **Syntax Style** | Uses `.then()` for success and `.catch()` for errors. | Uses `await` to pause execution and `try...catch` for error handling. |
+| **Readability** | Can become messy (callback chain) if too many `.then()` are nested. | Looks like synchronous code and is more readable for complex chains. |
+| **Error Handling** | Errors handled using `.catch()` block. | Errors handled using `try...catch`. |
+| **Chaining** | Easy for multiple asynchronous operations using promise chaining. | Excellent for sequential operations, harder for parallel unless using `Promise.all()`. |
+| **Best For** | Running tasks in parallel or when you need fine-grained control of chains. | Writing cleaner async code and sequential operations. |
+
+
+### ✔ Example Using Promises
+
 
 ```js
-async function test(){
-  const data = await fetch();
+function getData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let success = true;
+
+      if (success) {
+        resolve("Data fetched successfully!");
+      } else {
+        reject("Failed to fetch data");
+      }
+    }, 2000);
+  });
 }
+
+getData()
+  .then(result => console.log(result))
+  .catch(error => console.log(error));
+
 ```
+
+### ✔ Example Using Async/Await
+
+```js
+function getData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let success = true;
+
+      if (success) {
+        resolve("Data fetched successfully!");
+      } else {
+        reject("Failed to fetch data");
+      }
+    }, 2000);
+  });
+}
+
+async function fetchData() {
+  try {
+    const result = await getData();
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchData();
+
+
+```
+
 
 ---
 
