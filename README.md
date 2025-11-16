@@ -11,8 +11,11 @@ These questions cover core fundamentals, advanced concepts, real-world examples,
 **If you go through these Q&A sets, you will:**
 
 ✔ Improve your JavaScript knowledge
+
 ✔ Strengthen core concepts
+
 ✔ Prepare confidently for advanced-level interviews
+
 ✔ Understand JavaScript behavior with clear examples
 
 ---
