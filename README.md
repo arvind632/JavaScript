@@ -11,7 +11,7 @@ Hoisting is JavaScript's default behavior of moving variable and function declar
 * `let` and `const` are hoisted but **not initialized** (Temporal Dead Zone).
 
 
-## 🚀 Why Does Hoisting Happen in JavaScript?
+## ⚙️ Why Does Hoisting Happen in JavaScript?
 
 Hoisting occurs because JavaScript code is executed in **two phases** inside the **Execution Context**. 
 
@@ -101,18 +101,49 @@ If the Call Stack is **empty**, the Event Loop push callback (Promis & setTimeou
 ## 📌 4. What are Promises?
 
 **Answer:**
-A Promise represents an asynchronous operation.
 
-* `pending`
-* `fulfilled`
-* `rejected`
+A **Promise** is a JavaScript **object** that represents the *eventual result* of an asynchronous operation. It helps you write cleaner async code without falling into callback hell.
+
+## 🧠 Why Do We Need Promises?
+
+JavaScript is **single-threaded**, meaning it can execute only **one task at a time**.
+
+But real-world applications require handling multiple asynchronous tasks such as:
+
+* Database calls
+* API requests
+* File reading
+* User authentication
+
+Before promises, developers used **callbacks**, but nesting callbacks inside callbacks created complexity for understand and maintain the code:
+
+### ❌ Callback Hell
+* Complex to read
+* Hard to debug
+* Difficult to maintain
+
+To solve this problem, **ES6 introduced Promises**, providing a cleaner and more structured way to handle async code.
+
+### ✔ A Promise have 3 States
+
+1. **Pending** – The operation has started but is not yet complete.
+2. **Fulfilled** – The operation completed successfully.
+3. **Rejected** – The operation failed.
+
+---
+
+## 🔧 How to use Promises
+Promises are consumed using:
+* **`.then()`** → to handle success
+* **`.catch()`** → to handle errors
+
+### 📎 Example
 
 ```js
-new Promise((resolve, reject) => {
-  resolve("Done");
-});
+getData()
+  .then(result => console.log(result))
+  .catch(error => console.log(error));
 ```
-
 ---
 
 ## 📌 5. Difference Between Promise and Async/Await?
