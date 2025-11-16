@@ -1,5 +1,18 @@
 # Most Popular JavaScript Interview Questions and Answers
 
+👋 Hello Developers!
+
+**Welcome to my GitHub repository!** 🙏
+I’ve created a curated collection of important JavaScript interview questions and answers designed specifically for experienced developers.
+
+These questions cover core fundamentals, advanced concepts, real-world examples, and deep explanations across the entire JavaScript ecosystem.
+
+**If you go through these Q&A sets, you will:**
+✔ Improve your JavaScript knowledge
+✔ Strengthen core concepts
+✔ Prepare confidently for advanced-level interviews
+✔ Understand JavaScript behavior with clear examples
+
 ---
 
 ## 📌 1. What is Hoisting in JavaScript?
