@@ -43,11 +43,8 @@ However, in the real life applications, developers need to perform multiple oper
 * Sending emails
 
 These tasks must run smoothly **without blocking the main thread or freezing the user interface** — To solve this problem,  **Event Loop** was introduced.
-
 ---
-
 Even though JavaScript executes in a single thread, and in modern applications require running multiple tasks **concurrently**.
-
 ---
 
 ## ⚙️ How the Event Loop Works
@@ -75,7 +72,9 @@ There are two main queues:
 If the Call Stack is **empty**, the Event Loop push callback into Call Stack for execution.
  
  So Event loop is continuously checks the callback queue and if there are any Callback then move it from callback queue to call stack and execute.
+
 ---
+
 ## 📌 4. What are Promises?
 
 **Answer:**
