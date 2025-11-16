@@ -233,7 +233,13 @@ fetchData();
 ## 📌 6. What is Debouncing?
 
 **Answer:**
-Debouncing delays function execution until after a certain time has elapsed since the last call.
+Debouncing delays function execution until after a certain time has elapsed since the last call. It ensures that a function is executed only after the user stops performing an action.
+Real-Life Example (Very Simple) :  Imagine you are typing in search box. Every time you type a letter, And JavaScript could call an API.
+Debouncing ensure only call API after user stops typing for a small milliseconds
+
+Without Debounce ❌ (too many function calls) : like if Pressing keys: "H" "He" "Hel" "Hell" "Hello"  In that case API call 5 times.
+
+With Debouncing user can stop API calling for some millisecond  and Only 1 API call
 
 Used for: search boxes, window resize, scroll events.
 
@@ -245,6 +251,13 @@ function debounce(fn, delay){
     timer = setTimeout(() => fn.apply(this, arguments), delay);
   }
 }
+
+function searchData(query) {
+    document.getElementById("result").innerText =
+      "Searching for: " + query;
+  }
+
+const debouncedSearch = debounce(searchData, 500);
 ```
 
 ---
@@ -273,35 +286,102 @@ function throttle(fn, limit){
 
 **Answer:**
 Function that remembers its outer scope even after execution.
+A function access to its outer (parent) scope that's is called closure. Closure is lexical variable. That means a inner function can access the parent variable.
 
 ```js
-function parent(){
-  let x = 10;
-  return function(){ console.log(x); }
+
+function createCounter(){
+    let count = 0;
+    return function increment(){
+        count++;
+        console.log("count :", count);
+    }
 }
+
+const counter = createCounter();
+counter();  // count : 1
+counter();  // count : 2
+
 ```
 
 ---
 
-## 📌 9. What is Currying?
+## 📌 9. What is Callback?
 
 **Answer:**
-Transforming a function with multiple arguments into a sequence of functions.
+a callback is a function , that is passed as an argument into another function.
 
 ```js
-const add = a => b => c => a + b + c;
+
+var greet = (name, callback)=>{
+        console.log("Hello " + name);
+        callback();
+}
+var sayBye_callback = ()=> {
+  console.log("Goodbye!");
+}
+
+greet("Arvind", sayBye_callback);
+
 ```
 
 ---
 
 ## 📌 10. Explain Call, Apply, Bind.
+**Answer:**
+
+In JavaScript, call, apply, and bind are methods used to change the value of this inside a function.
+
+### **1️⃣ call()
+Calls a function immediately with a specific this value
 
 ```js
-function test(a){ console.log(this.name, a); }
+const person = {
+  name: "Arvind"
+};
+function greet(city, country) {
+  console.log(`Hello ${this.name} from ${city}, ${country}`);
+}
+greet.call(person, "Varanasi", "India");
 
-test.call({name:"Arvind"}, 10);
-test.apply({name:"Arvind"}, [10]);
-const fn = test.bind({name:"Arvind"}); fn(10);
+// Output
+// Hello Arvind from Varanasi, India
+
+```
+
+
+### **2️⃣ apply()
+Calls a function immediately and Passes arguments as an array
+
+```js
+const person = {
+  name: "Arvind"
+};
+function greet(city, country) {
+  console.log(`Hello ${this.name} from ${city}, ${country}`);
+}
+greet.apply(person, ["Varanasi", "India"]);
+
+// Output
+// Hello Arvind from Varanasi, India
+
+```
+
+### **3️⃣ bind()
+Returns a new function, Does NOT call the function immediately, You can call the new function later
+```js
+const person = {
+  name: "Arvind"
+};
+function greet(city, country) {
+  console.log(`Hello ${this.name} from ${city}, ${country}`);
+}
+const newFunc = greet.bind(person, "Varanasi", "India");
+newFunc(); // calling later
+
+// Output
+// Hello Arvind from Varanasi, India
+
 ```
 
 ---
