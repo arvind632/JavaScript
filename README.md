@@ -20,6 +20,15 @@ These questions cover core fundamentals, advanced concepts, real-world examples,
 
 ---
 
+
+<p align="center">
+  <img src="public/img/cover-book.png" alt="JavaScript Cover Book" width="800">
+</p>
+
+
+
+---
+
 ## 📌 1. What is Hoisting in JavaScript?
 
 
