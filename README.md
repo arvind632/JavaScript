@@ -119,7 +119,6 @@ If the Call Stack is **empty**, the Event Loop push callback (Promis & setTimeou
 ## 📌 4. What are Promises?
 
 **Answer:**
-
 A **Promise** is a JavaScript **object** that represents the *eventual result* of an asynchronous operation. It helps you write cleaner async code without falling into callback hell.
 
 ## 🧠 Why Do We Need Promises?
@@ -173,7 +172,6 @@ fetchData
 ## 📌 5. Difference Between Promise and Async/Await?
 
 **Answer:**
-
 JavaScript handles asynchronous operations using **Promises** and **Async/Await**.  
 Both help avoid blocking the main thread, but they work in different ways and provide different levels of readability and control.
 
