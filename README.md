@@ -164,7 +164,7 @@ Both help avoid blocking the main thread, but they work in different ways and pr
 
 | Feature | Promise | Async/Await |
 |--------|---------|--------------|
-| **Definition** | A Promise represents the eventual completion or failure of an async task. | A syntactic sugar built on top of Promises to write easier, cleaner async code. |
+| **Definition** | Promises was introduce in ES6 (2015) | Async/await was introduce in ES8 (2017)  |
 | **Syntax Style** | Uses `.then()` for success and `.catch()` for errors. | Uses `await` to pause execution and `try...catch` for error handling. |
 | **Readability** | Can become messy (callback chain) if too many `.then()` are nested. | Looks like synchronous code and is more readable for complex chains. |
 | **Error Handling** | Errors handled using `.catch()` block. | Errors handled using `try...catch`. |
