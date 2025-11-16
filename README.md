@@ -11,6 +11,29 @@ Hoisting is JavaScript's default behavior of moving variable and function declar
 * `var` is hoisted and initialized with `undefined`.
 * `let` and `const` are hoisted but **not initialized** (Temporal Dead Zone).
 
+
+## 🚀 Why Does Hoisting Happen in JavaScript?
+
+Hoisting occurs because JavaScript code is executed in **two phases** inside the **Execution Context**. 
+---
+## 🔹 1) Creation Phase
+During the creation phase, JavaScript prepares memory before executing your code.
+
+* Memory is allocated for **variables**, **functions**, and **arguments**.
+* **Function declarations** are hoisted with their full definitions.
+* Variables declared with **`var`** are initialized with `undefined`.
+* Variables declared with **`let`** and **`const`** are placed in the **Temporal Dead Zone (TDZ)** — memory is allocated but **not initialized**.
+
+This explains why accessing `let` or `const` before initialization causes a **ReferenceError**.
+---
+## 🔹 2) Execution Phase
+
+After memory allocation, JavaScript runs the code **line by line**.
+
+* Variable assignments happen in this phase.
+* Functions execute when called.
+
+
 ```js
 console.log(a); // undefined
 var a = 10;
@@ -70,7 +93,7 @@ There are two main queues:
 
 ### **4️⃣ Event Loop monitors the Call Stack**
 
-If the Call Stack is **empty**, the Event Loop push callback into Call Stack for execution.
+If the Call Stack is **empty**, the Event Loop push callback (Promis & setTimeout) into Call Stack for execution.
  
  So Event loop is continuously checks the callback queue and if there are any Callback then move it from callback queue to call stack and execute.
 
