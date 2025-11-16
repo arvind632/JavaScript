@@ -106,7 +106,7 @@ A **Promise** is a JavaScript **object** that represents the *eventual result* o
 
 ## 🧠 Why Do We Need Promises?
 
-JavaScript is **single-threaded**, meaning it can execute only **one task at a time**.
+We all know that JavaScript is **single-threaded**, means it can execute only **one task at a time**.
 
 But real-world applications require handling multiple asynchronous tasks such as:
 
@@ -115,7 +115,7 @@ But real-world applications require handling multiple asynchronous tasks such as
 * File reading
 * User authentication
 
-Before promises, developers used **callbacks**, but nesting callbacks inside callbacks created complexity for understand and maintain the code:
+Before promises, developers used **callbacks**, but nesting callbacks inside callbacks created callback Hell means complexity for understand and maintain the code:
 
 ### ❌ Callback Hell
 * Complex to read
@@ -129,8 +129,6 @@ To solve this problem, **ES6 introduced Promises**, providing a cleaner and more
 1. **Pending** – The operation has started but is not yet complete.
 2. **Fulfilled** – The operation completed successfully.
 3. **Rejected** – The operation failed.
-
----
 
 ## 🔧 How to use Promises
 Promises are consumed using:
