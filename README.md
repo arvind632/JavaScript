@@ -22,7 +22,7 @@ These questions cover core fundamentals, advanced concepts, real-world examples,
 
 ## 📌 1. What is Hoisting in JavaScript?
 
-**Answer:**
+
 Hoisting is JavaScript's default behavior of moving variable and function declarations to the top of their scope before execution.
 
 * `var` is hoisted and initialized with `undefined`.
@@ -60,7 +60,7 @@ var a = 10;
 
 ## 📌 2. Difference Between `var`, `let`, and `const`?
 
-**Answer:**
+
 
 | Feature   | var             | let   | const |
 | --------- | --------------- | ----- | ----- |
@@ -118,7 +118,6 @@ If the Call Stack is **empty**, the Event Loop push callback (Promis & setTimeou
 
 ## 📌 4. What are Promises?
 
-**Answer:**
 A **Promise** is a JavaScript **object** that represents the *eventual result* of an asynchronous operation. It helps you write cleaner async code without falling into callback hell.
 
 ## 🧠 Why Do We Need Promises?
@@ -171,7 +170,6 @@ fetchData
 
 ## 📌 5. Difference Between Promise and Async/Await?
 
-**Answer:**
 JavaScript handles asynchronous operations using **Promises** and **Async/Await**.  
 Both help avoid blocking the main thread, but they work in different ways and provide different levels of readability and control.
 
@@ -248,7 +246,6 @@ fetchData();
 
 ## 📌 6. What is Debouncing?
 
-**Answer:**
 Debouncing delays function execution until after a certain time has elapsed since the last call. It ensures that a function is executed only after the user stops performing an action.
 Real-Life Example (Very Simple) :  Imagine you are typing in search box. Every time you type a letter, And JavaScript could call an API.
 Debouncing ensure only call API after user stops typing for a small milliseconds
@@ -280,7 +277,7 @@ const debouncedSearch = debounce(searchData, 500);
 
 ## 📌 7. What is Throttling?
 
-**Answer:**
+
 Allows a function to be executed only once in a given interval.
 
 ```js
@@ -300,7 +297,7 @@ function throttle(fn, limit){
 
 ## 📌 8. What is Closure?
 
-**Answer:**
+
 Function that remembers its outer scope even after execution.
 A function access to its outer (parent) scope that's is called closure. Closure is lexical variable. That means a inner function can access the parent variable.
 
@@ -324,7 +321,7 @@ counter();  // count : 2
 
 ## 📌 9. What is Callback?
 
-**Answer:**
+
 a callback is a function , that is passed as an argument into another function.
 
 ```js
@@ -344,7 +341,7 @@ greet("Arvind", sayBye_callback);
 ---
 
 ## 📌 10. Explain Call, Apply, Bind.
-**Answer:**
+
 
 In JavaScript, call, apply, and bind are methods used to change the value of this inside a function.
 
@@ -404,7 +401,7 @@ newFunc(); // calling later
 
 ## 📌 11. What is Execution Context?
 
-**Answer:**
+
 Execution Context is the environment where JavaScript code is executed.
 It is created in two phases — Creation Phase (memory allocation) and Execution Phase (code execution).
 JavaScript uses Call Stack to manage execution contexts
