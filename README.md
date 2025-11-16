@@ -626,7 +626,7 @@ console.log(PI);          // 3.14
 
 ---
 
-## 📌 24. What is Optional Chaining?
+## 📌 23. What is Optional Chaining?
 
 ```js
 a?.b?.c
@@ -636,7 +636,7 @@ Prevents errors when accessing nested properties.
 
 ---
 
-## 📌 25. What is the Purpose of `use strict`?
+## 📌 24. What is the Purpose of `use strict`?
 
 use strict enables Strict Mode in JavaScript, which catches common coding errors, prevents unsafe actions (like using undeclared variables), avoids accidental globals, blocks deprecated features, and helps write cleaner and more secure code.
 
