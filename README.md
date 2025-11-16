@@ -389,7 +389,11 @@ newFunc(); // calling later
 ## 📌 11. What is Execution Context?
 
 **Answer:**
-Environment where JS code is executed.
+Execution Context is the environment where JavaScript code is executed.
+It is created in two phases — Creation Phase (memory allocation) and Execution Phase (code execution).
+JavaScript uses Call Stack to manage execution contexts
+
+Two Types of Execution Context
 
 * Global Execution Context
 * Function Execution Context
@@ -411,72 +415,171 @@ const fn = () => {}
 
 ---
 
-## 📌 13. What are Arrow Functions? Differences?
+## 📌 13. What is the JavaScript Execution Process inside the V8 Engine?
 
-* Lexical `this` (no own `this`)
-* Cannot be used as constructor
-* No `arguments` object
+```js
+JS Source Code
+↓
+Parser (creates AST – Abstract Syntax Tree)
+↓
+Interpreter (Ignition – converts AST → Bytecode)
+↓
+JIT Compiler (Turbofan – optimizes & converts Bytecode → Machine Code)
+↓
+Execution (CPU runs the optimized machine code)
+↓
+Output
+
+```
 
 ---
 
-## 📌 14. What are Pure Functions?
+## 📌 14. What is the Event-Driven programming ?
+Event-Driven programming means callback execute after an event.
+We can write Event-Driven Programming in many ways : Callback, Promises, Async/Await, Event Listeners, Node.js EventEmitter
+        
+###  Example with Callbackes
+ ```js
+setTimeout(() => {
+  console.log("Timer event triggered");
+}, 2000);
 
-A function that:
+```
 
-* Same input → same output
-* No side effects
+
+###  Example with Promises
+ ```js
+fetch("/api/users")
+  .then(res => res.json())
+  .then(data => console.log("API Data:", data));
+
+```
+
+
 
 ---
 
-## 📌 15. What is a Callback Function?
+## 📌 15. What are the different data types present in JavaScript
+### **1️⃣ Primitive types    
+Primitive data types can store only a single value. 
+Example of Primitive datatype - String , Number, BigInt, Boolean, Undefined, Null 
+   
+### **2️⃣ Non-primitive types 
+non-primitive data types are used To store multiple and complex values.
+ ```js
+    var obj1 = {
+   	x:  43,
+   	y:  "Hello world!",
+   	z: function(){
+      		return this.x;
+   	}
+    }
 
-Function passed as an argument to another function.
+  var array1 = [5, "Hello", true, 4.1];
+```
 
 ---
 
 ## 📌 16. Explain the JavaScript Memory Leak.
 
-Common causes:
-
-* Global variables
-* Forgotten timers
-* Closures holding unused references
+CA memory leak happens when your JavaScript program keeps using memory but never releases it, even though it is no longer needed.
+Because of leaks, your app becomes:
+* Slower
+* Laggy
+* More RAM usage
+* Eventually crashes
 
 ---
 
-## 📌 17. What is Prototypal Inheritance?
-
-Objects inherit properties from a prototype.
-
+## 📌 17.Filter product in JavaScript using function?
 ```js
-const obj = {a:10};
-const child = Object.create(obj);
+
+const getProducts =  () =>{
+    const products = [
+      {id:1,name:"tea", price:10, category:"beverage"},
+      {id:2,name:"coffee", price:20, category:"beverage"},
+      {id:3,name:"milk", price:30, category:"dairy"},
+      {id:4,name:"water", price:15, category:"drink"},
+    ];
+    return products;
+}
+
+const filterProduct = (name, products)=>{
+    const filterData = products.filter((product)=>product.name.toLowerCase().includes(name.toLowerCase()));
+    console.log("Filter Data : ", filterData);
+}
+
+filterProduct("tea", getProducts());
+
 ```
 
 ---
 
-## 📌 18. What is Event Delegation?
+## 📌 18. Filter product in JavaScript using promises?
 
-Using a single parent listener to handle events of multiple children.
 
+```js
+const getProducts = ()=> { 
+return new Promise((resolve,reject) =>{
+    const products = [
+      {id:1,name:"tea", price:10,category:"beverage"},
+      {id:2,name:"coffee", price:20,category:"beverage"},
+      {id:3,name:"milk", price:30,category:"dairy"},
+      {id:4,name:"water", price:15,category:"drink"},
+    ];
+    setTimeout(()=>{
+        resolve(products);
+    },1000);
+});
+
+}
+
+const filterProduct = (name, products)=>{
+    const filterData = products.filter((product)=>product.name.toLowerCase().includes(name.toLowerCase()));
+    console.log("Filter Data : ", filterData);
+}
+
+getProducts().then((allProducts)=>{
+    console.log("get data", allProducts);
+    filterProduct("coffee", allProducts);
+}).catch((error)=>{
+    console.log("Error fetching products:", error);
+});
+
+```
 ---
 
 ## 📌 19. What is the Difference Between `==` and `===`?
 
-* `==` → compares after type conversion
-* `===` → no conversion
+* `==` → Compares values only (automatically converts data types to match)
+* `===` → Compares value + data type
+
+```js
+5 == "5"   // true (string "5" is converted to number 5)
+0 == false // true
+null == undefined // true
+
+
+
+5 === "5"   // false (number vs string)
+0 === false // false
+null === undefined // false
+
+```
 
 ---
 
 ## 📌 20. Deep Copy vs Shallow Copy
 
 **Shallow Copy:**
+A shallow copy creates a new object
 
 ```js
 const obj2 = {...obj1};
 ```
 
 **Deep Copy:**
+A deep copy creates a completely independent clone, INCLUDING all nested objects/arrays.
 
 ```js
 const deep = JSON.parse(JSON.stringify(obj));
@@ -495,24 +598,30 @@ Depends on:
 * Constructor
 * Arrow function
 
----
-
-## 📌 22. What is a Generator Function?
-
-Function that can pause and resume.
-
-```js
-function* gen(){ yield 1; yield 2; }
-```
 
 ---
 
-## 📌 23. What is a Module in JavaScript?
+## 📌 22. What is a Module in JavaScript?
 
-Reusable pieces of code.
+ES6 introduce module for reuseable code.
+A module in JavaScript is a separate file that contains its own variables, functions, classes, etc.
+and exports them so other files can import and use them.
+It is reuseable code. Improves structure in large projects,Supports encapsulation,
+
 
 ```js
-import sum from "./sum.js";
+//module.js
+export const PI = 3.14;
+
+export function sum(a, b) {
+  return a + b;
+}
+
+// main.js
+import { PI, add } from './module.js';
+console.log(sum(10, 20)); // 30
+console.log(PI);          // 3.14
+
 ```
 
 ---
@@ -529,16 +638,9 @@ Prevents errors when accessing nested properties.
 
 ## 📌 25. What is the Purpose of `use strict`?
 
-Enables strict mode — prevents silent errors.
+use strict enables Strict Mode in JavaScript, which catches common coding errors, prevents unsafe actions (like using undeclared variables), avoids accidental globals, blocks deprecated features, and helps write cleaner and more secure code.
 
 ---
 
-## 🙌 Contribute
 
-Pull requests are welcome! Enhance questions, add examples, or update advanced concepts.
 
----
-
-## ⭐ Support
-
-If this helped you, give it a **star ⭐** to help others find it!
