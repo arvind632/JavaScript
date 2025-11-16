@@ -43,9 +43,10 @@ However, in the real life applications, developers need to perform multiple oper
 * Sending emails
 
 These tasks must run smoothly **without blocking the main thread or freezing the user interface** — To solve this problem,  **Event Loop** was introduced.
----
+
+
 Even though JavaScript executes in a single thread, and in modern applications require running multiple tasks **concurrently**.
----
+
 
 ## ⚙️ How the Event Loop Works
 
