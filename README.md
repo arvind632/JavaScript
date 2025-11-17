@@ -664,5 +664,20 @@ use strict enables Strict Mode in JavaScript, which catches common coding errors
 
 ---
 
+## 📌 25. Array Functions in JavaScript (Popular)
+
+* map()
+* filter()
+* reduce()
+* forEach()
+* find()
+* some()
+* every()
+* sort()
+* push/pop()
+* shift/unshift()
+* splice()
+* Slice()
+
 
 
