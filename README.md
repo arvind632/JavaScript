@@ -117,6 +117,13 @@ There are two main queues:
 * **Callback Queue** → Timers, DOM events
 * **Microtask Queue** → Promises, async/await
 
+### Phases of the Event Loop in JavaScript
+JavaScript in the browser has 2 main phases:
+1️⃣ Macro-task Queue 
+   Examples of Macro-tasks:setTimeout, setInterval, DOM events (Click), callback
+2️⃣ Micro-task Queue:
+   High-priority queue — always executed before next macro-task
+   Promise.then(), async/await 
 ### **4️⃣ Event Loop monitors the Call Stack**
 
 If the Call Stack is **empty**, the Event Loop push callback (Promis & setTimeout) into Call Stack for execution.
@@ -664,7 +671,42 @@ use strict enables Strict Mode in JavaScript, which catches common coding errors
 
 ---
 
-## 📌 25. Array Functions in JavaScript (Popular)
+## 📌 25 How to run javascript code?
+JavaScript run on the browser and Every browser has a JS engine:
+| Browser | JS Engine          |
+| ------- | ------------------ |
+| Chrome  | **V8**             |
+| Edge    | **V8**             |
+| Firefox | **SpiderMonkey**   |
+| Safari  | **JavaScriptCore** |
+| Node.js | **V8**             |
+
+engine read your JS code and Convert it to machine code and Execute it.
+
+JS Engine breaks your code into 2 phases.
+
+### Phase 1: Creation Phase:
+Engine scans your code before running it.
+Creates global execution context
+Creates memory space
+Stores variables & functions in memory
+
+### Phase 2: Execution Phase
+Engine runs the code line-by-line.
+It assigns values to variables
+It executes functions
+It creates function execution contexts
+
+### Execution Context
+    There are 2 types:
+    Global Execution Context (GEC) : Created once when script starts.
+    It has Memory space for all global variables
+    Function Execution Context (FEC): Wethr a function is called, JS creates a NEW execution context.
+
+###  Call Stack (Execution Stack)
+    All execution contexts are stored in a call stack and after finish remove the executation context.
+
+## 📌 26. Array Functions in JavaScript (Popular)
 
 * map()
 * filter()
