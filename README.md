@@ -114,6 +114,7 @@ It sets up:
  2) this keyword pointing to the global object
  3) Memory allocation for variables and functions
 
+
 2) Function Execution Context : Created every time a function is called.
    FEC provides : Own memory space, Own scope, Own value of this, Separate handling of variables, arguments, and function declarations inside the function.
 
