@@ -105,9 +105,31 @@ An Execution Context (EC) is the environment where JavaScript code is evaluated 
 It contains all the information that the JavaScript engine needs to run code, including variables, functions, and the value of this.
 
 ### Types of Execution Context
-1) Global Execution Context (GEC) : Created automatically when JS starts executing a program.
+1) Global Execution Context (GEC) : Created automatically when JS starts executing a program. 
+
+It is the environment where global code runs
+It sets up:
+
+ 1) Global Object (window in browsers, global in Node.js)
+ 2) this keyword pointing to the global object
+ 3) Memory allocation for variables and functions
 
 2) Function Execution Context : Created every time a function is called.
+   FEC provides : Own memory space, Own scope, Own value of this, Separate handling of variables, arguments, and function declarations inside the function.
+
+   Every function runs in its own isolated environment, which is the FEC.
+   ### When Is FEC Created?
+   FEC is created only when a function is invoked, not when it is defined.
+
+```js
+
+function add(x, y) {
+  return x + y;
+}
+
+add(2, 3); // FEC created here
+
+```
 
 Every Execution Context goes through two phases: Creation Phase and Execution Phase
 
@@ -137,6 +159,7 @@ After memory allocation, JavaScript runs the code **line by line**.
 
 * Variable assignments happen in this phase.
 * Functions execute when called.
+
 
 
 ---
