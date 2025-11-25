@@ -95,11 +95,27 @@ sum(5,10);
 * `let` and `const` are hoisted but **not initialized** (Temporal Dead Zone).
 
 
-## ⚙️ Why Does Hoisting Happen in JavaScript?
+### ⚙️ Why Does Hoisting Happen in JavaScript?
 
-Hoisting occurs because JavaScript code is executed in **two phases** inside the **Execution Context**. 
+Hoisting occurs because JavaScript code is executed in **two phases** inside the **Execution Context**.
 
-### **1️⃣ Creation Phase
+### What is Execution Context?
+An Execution Context (EC) is the environment where JavaScript code is evaluated and executed.
+
+It contains all the information that the JavaScript engine needs to run code, including variables, functions, and the value of this.
+
+### Types of Execution Context
+1) Global Execution Context (GEC) : Created automatically when JS starts executing a program.
+
+2) Function Execution Context : Created every time a function is called.
+
+Every Execution Context goes through two phases: Creation Phase and Execution Phase
+
+
+
+
+
+### **1️⃣ Creation Phase (Memory Allocation)
 During the creation phase, JavaScript prepares memory before executing your code.
 
 * Memory is allocated for **variables**, **functions**, and **arguments**.
@@ -107,7 +123,7 @@ During the creation phase, JavaScript prepares memory before executing your code
 * Variables declared with **`var`** are initialized with `undefined`.
 * Variables declared with **`let`** and **`const`** are placed in the **Temporal Dead Zone (TDZ)** — memory is allocated but **not initialized**.
   
-  ### TDZ: 
+### TDZ: 
   The Temporal Dead Zone (TDZ) is the time frame between entering a scope and the actual initialization of variables declared with let or const. Accessing them during this time results in a ReferenceError.
   
   In simple word :
@@ -115,18 +131,13 @@ During the creation phase, JavaScript prepares memory before executing your code
 
 This explains why accessing `let` or `const` before initialization causes a **ReferenceError**.
 
-### **2️⃣ Execution Phase
+### **2️⃣ Execution Phase (Code Runs Line by Line)
 
 After memory allocation, JavaScript runs the code **line by line**.
 
 * Variable assignments happen in this phase.
 * Functions execute when called.
 
-
-```js
-console.log(a); // undefined
-var a = 10;
-```
 
 ---
 
