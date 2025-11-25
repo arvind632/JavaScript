@@ -52,6 +52,7 @@ During the creation phase, JavaScript prepares memory before executing your code
   
   ### TDZ: 
   The Temporal Dead Zone (TDZ) is the time frame between entering a scope and the actual initialization of variables declared with let or const. Accessing them during this time results in a ReferenceError.
+  
   In simple word :
   the Temporal Dead Zone (TDZ) is the time between a variable’s declaration and its initialization. If you try to access the variable during this period, JavaScript throws a ReferenceError.
 
