@@ -32,7 +32,64 @@ These questions cover core fundamentals, advanced concepts, real-world examples,
 ## 📌 1. What is Hoisting in JavaScript?
 
 
-Hoisting is JavaScript's default behavior of moving variable and function declarations to the top of their scope before execution.
+Hoisting is a default behavior in JavaScript where variable and function declarations are moved to the top of their scope before the code execution. 
+
+For example, var a = 5 is hoisted as var a; (initialized as undefined) and then later assigned a = 5.
+
+## Example : 1
+
+Before hoisting 
+
+```js
+var a=5;
+
+```
+After hoisting 
+
+```js
+var a;
+a=5;
+
+```
+
+## Example : 2
+Before hoisting 
+```js
+var a =5;
+var b = 10;
+let c = 2;
+const d = 5;
+
+function sum(a,b){
+   return a+b;
+}
+
+sum(a,b);
+
+```
+
+After Hoisting  
+
+```js
+var a; // var → hoisted + initialized as undefined
+var b; // var → hoisted + initialized as undefined
+
+let c; // let → hoisted but NOT initialized (TDZ)
+let d; // const → hoisted but NOT initialized (TDZ)
+
+function sum(a,b){  // function → fully hoisted
+  return a+b;
+}
+
+// Actual code execution starts here
+a=5;
+b=10;
+
+c=2;  // c initialized here (TDZ ends)
+d=5;  // c initialized here (TDZ ends)
+sum(5,10);
+
+```
 
 * `var` is hoisted and initialized with `undefined`.
 * `let` and `const` are hoisted but **not initialized** (Temporal Dead Zone).
