@@ -47,7 +47,7 @@ var a=5;
 After hoisting 
 
 ```js
-var a;
+var a;  // var → hoisted + initialized as undefined
 a=5;
 
 ```
