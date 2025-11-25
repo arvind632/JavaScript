@@ -49,6 +49,11 @@ During the creation phase, JavaScript prepares memory before executing your code
 * **Function declarations** are hoisted with their full definitions.
 * Variables declared with **`var`** are initialized with `undefined`.
 * Variables declared with **`let`** and **`const`** are placed in the **Temporal Dead Zone (TDZ)** — memory is allocated but **not initialized**.
+  
+  ### TDZ: 
+  The Temporal Dead Zone (TDZ) is the time frame between entering a scope and the actual initialization of variables declared with let or const. Accessing them during this time results in a ReferenceError.
+  In simple word :
+  the Temporal Dead Zone (TDZ) is the time between a variable’s declaration and its initialization. If you try to access the variable during this period, JavaScript throws a ReferenceError.
 
 This explains why accessing `let` or `const` before initialization causes a **ReferenceError**.
 
